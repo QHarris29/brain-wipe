@@ -1,38 +1,38 @@
 [
     {
-        "image": "../assets/MP1-planetImg1.png",
+        "image": "assets/PlanetImgs/MP1-planetImg1.png",
         "name": "Mars"
     },
     {
-        "image": "../assets/MP1-planetImg2.png",
+        "image": "assets/PlanetImgs/MP1-planetImg2.png",
         "name": "Uranus"
     },
     {
-        "image": "../assets/MP1-planetImg3.png",
+        "image": "assets/PlanetImgs/MP1-planetImg3.png",
         "name": "Mercury"
     },
     {
-        "image": "../assets/MP1-planetImg4.png",
+        "image": "assets/PlanetImgs/MP1-planetImg4.png",
         "name": "Saturn"
     },
     {
-        "image": "../assets/MP1-planetImg5.png",
+        "image": "assets/PlanetImgs/MP1-planetImg5.png",
         "name": "Neptune"
     },
     {
-        "image": "../assets/MP1-planetImg6.png",
+        "image": "assets/PlanetImgs/MP1-planetImg6.png",
         "name": "Jupiter"
     },
     {
-        "image": "../assets/MP1-planetImg7.png",
+        "image": "assets/PlanetImgs/MP1-planetImg7.png",
         "name": "Venus"
     },
     {
-        "image": "../assets/MP1-planetImg8.png",
+        "image": "assets/PlanetImgs/MP1-planetImg8.png",
         "name": "Sun"
     },
     {
-        "image": "../assets/MP1-planetImg9.png",
+        "image": "assets/PlanetImgs/MP1-planetImg9.png",
         "name": "Earth"
     }
 ]

@@ -17,6 +17,13 @@ p {
     font-weight: bold;
 }
 
+.timer {
+    text-align: center;
+    font-weight: 700;
+    font-size: 50px;
+    padding-bottom: 10px;
+}
+
 .actions {
     display: flex;
     justify-content: center;
