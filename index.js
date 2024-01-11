@@ -2,7 +2,8 @@ const gridContainer = document.querySelector(".grid-container");
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
-score = 0;
+let score = 0;
+let timer;
 
 document.querySelector(".score").textContent = score;
 
@@ -56,7 +57,7 @@ function flipCard() {
 
     secondCard = this;
     score++;
-    document.querySelector("score").textContent = score;
+    document.querySelector(".score").textContent = score;
     lockBoard = true;
 
     checkForMatch();
@@ -65,7 +66,7 @@ function flipCard() {
 function checkForMatch() {
     let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
-    isMatch ? disableCards() : unflipCards;
+    isMatch ? disableCards() : unflipCards();
 }
 
 function disableCards() {
@@ -89,11 +90,66 @@ function resetBoard() {
     lockBoard = false;
 }
 
-function restart() {
-    resetBoard();
-    shuffelCards();
+function startGame() {
+    // Flip all cards face up at the beginning
+    flipAllCards(true);
+
+    // Wait for a short duration before flipping cards face down and starting the timer
+    setTimeout(() => {
+        flipAllCards(false); // Flip all cards face down after a short delay
+        startTimer();
+    }, 10000); // Set the delay to 10 seconds (10000 milliseconds)
+}
+
+function restartGame() {
+    // Flip all cards face down
+    flipAllCards(false);
+
+    // Reset the game state
     score = 0;
     document.querySelector(".score").textContent = score;
-    gridContainer.innerHTML = "";
-    generateCards();
+
+    // Clear any existing timer
+    clearInterval(timer);
+
+    // Re-add click event listeners to all cards
+    const allCards = document.querySelectorAll('.card');
+    allCards.forEach(card => {
+        card.addEventListener("click", flipCard);
+    });
 }
+
+function flipAllCards(faceUp) {
+    let allCards = document.querySelectorAll('.card');
+
+    allCards.forEach(card => {
+        if (faceUp) {
+            card.classList.add('flipped');
+        } else {
+            card.classList.remove('flipped');
+        }
+    });
+}
+
+function startTimer() {
+    timer = setInterval(() => {
+        // Timer logic here
+        console.log("Time remaining...");
+        // You can update a timer display if needed
+
+        // Example: If you want to end the game after 30 seconds
+        if (timerSeconds === 0) {
+            clearInterval(timer);
+            // Call a function to handle the end of the game
+            endGame();
+        }
+    }, 1000); // Update the timer every 1000 milliseconds (1 second)
+}
+
+const startBtn = document.getElementById("start")
+startBtn.addEventListener("click", startGame)
+
+const restartBtn = document.getElementById("restart")
+restartBtn.addEventListener("click", restartGame);
+
+
