@@ -8,14 +8,7 @@ let timerSeconds = 9; // Initial timer value in seconds
 
 document.querySelector(".score").textContent = score;
 
-fetch("./data/cards.json")
-    .then((res) => res.json())
-    .then((data) => {
-        cards = [...data, ...data];
-        shuffleCards();
-        generateCards();
-    });
-
+//// Shuffles the order of the cards array ... Creates and returns a card element with front and back elements.
 function shuffleCards() {
     let currentIndex = cards.length,
         randomIndex,
@@ -29,22 +22,35 @@ function shuffleCards() {
     }
 }
 
+// Creates a DOM element for a card using the provided card data.
+function createCardElement(card) {
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    cardElement.setAttribute("data-name", card.name);
+
+    const frontElement = document.createElement("div");
+    frontElement.classList.add("front");
+    frontElement.style.backgroundImage = `url(${card.image})`;
+
+    const backElement = document.createElement("div");
+    backElement.classList.add("back");
+
+    cardElement.appendChild(frontElement);
+    cardElement.appendChild(backElement);
+
+    return cardElement;
+}
+
+// Generates the cards on the grid container based on the current cards array. Creates card elements and adds event listeners to them.
 function generateCards() {
     for (let card of cards) {
-        const cardElement = document.createElement("div");
-        cardElement.classList.add("card");
-        cardElement.setAttribute("data-name", card.name);
-        cardElement.innerHTML = `
-        <div class="front">
-            <img class="front-image" src=${card.image} />
-        </div>
-        <div class="back"></div>
-             `;
+        const cardElement = createCardElement(card);
         gridContainer.appendChild(cardElement);
         cardElement.addEventListener("click", flipCard);
     }
 }
 
+// Handles the logic when a card is flipped. Checks if the board is locked, if it's the first or second card, and updates the score.Calls checkForMatch, disables cards, or flips them back based on the match result.
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -64,6 +70,7 @@ function flipCard() {
     checkForMatch();
 }
 
+// Checks if the player has won and achieved a high score. Checks if all cards are flipped and if the score is at a high score value.
 function checkWin() {
     const allMatched = document.querySelectorAll('.flipped').length === cards.length;
     const isHighScore = score === 9;
@@ -76,6 +83,7 @@ function checkWin() {
     }
 }
 
+// Checks if the flipped pair of cards is a match. Compares the names of the first and second card's dataset. Calls disableCards or unflipCards based on the match result.
 function checkForMatch() {
     let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
@@ -85,6 +93,7 @@ function checkForMatch() {
     checkWin();
 }
 
+// Disables the event listeners for a matched pair of cards.
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
@@ -92,6 +101,7 @@ function disableCards() {
     resetBoard();
 }
 
+// Flips back the unmatched pair of cards after a short delay.
 function unflipCards() {
     setTimeout(() => {
         firstCard.classList.remove("flipped");
@@ -100,12 +110,14 @@ function unflipCards() {
     }, 1000);
 }
 
+// Resets the board after a pair of cards has been checked.
 function resetBoard() {
     firstCard = null;
     secondCard = null;
     lockBoard = false;
 }
 
+// Initiates the start of the game by flipping all cards and starting the timer.
 function startGame() {
     document.getElementById("timer").textContent = timerSeconds;
 
@@ -119,6 +131,7 @@ function startGame() {
     }, 10000);
 }
 
+// Starts the countdown timer and ends the game when the time is up.
 function startTimer() {
     timer = setInterval(() => {
         document.getElementById("timer").textContent = timerSeconds;
@@ -132,22 +145,39 @@ function startTimer() {
     }, 1000);
 }
 
-function restartGame() {
+// Resets the game state, including score, timer, and card layout.
+function resetGame() {
     flipAllCards(false);
     score = 0;
     document.querySelector(".score").textContent = score;
-    clearInterval(timer);
 
     // Reset timerSeconds to its initial value
-    timerSeconds = 9; // or whatever initial value you want
+    timerSeconds = 10; // Set to 10 seconds for the reset
+
+    // Display the initial time on the timer
+    document.getElementById("timer").textContent = timerSeconds;
+
+    // Clear the existing timer (if it's running)
+    clearInterval(timer);
+
+    // Clear the existing cards in the grid-container
+    gridContainer.innerHTML = '';
+
+    // Shuffle the cards
+    shuffleCards();
+
+    // Regenerate the cards
+    generateCards();
 
     // Add event listeners to all cards
     const allCards = document.querySelectorAll('.card');
     allCards.forEach(card => {
         card.addEventListener("click", flipCard);
+        card.classList.remove('flipped'); // Make sure cards are not flipped
     });
 }
 
+// Flips all cards either face up or face down.
 function flipAllCards(faceUp) {
     let allCards = document.querySelectorAll('.card');
 
@@ -160,23 +190,31 @@ function flipAllCards(faceUp) {
     });
 }
 
-function simulateWin() {
-    // Simulate winning the game by flipping all cards
-    flipAllCards(true);
+// Changes the theme by loading new card data based on the selected theme.
+function changeTheme() {
+    const themeSelector = document.getElementById("theme");
+    const selectedTheme = themeSelector.value;
 
-    // Call checkWin to show the "You got the high score" popup
-    checkWin();
+    // Clear the existing cards in the grid-container
+    gridContainer.innerHTML = '';
+
+    // Load corresponding JSON file based on the selected theme
+    fetch(`./data/${selectedTheme}Cards.json`)
+        .then((res) => res.json())
+        .then((data) => {
+            // Update the cards array and regenerate the cards
+            cards = [...data, ...data];
+            shuffleCards();
+            generateCards();
+        });
 }
 
-// Add a button or a keyboard shortcut to trigger the simulation
-const simulateWinButton = document.getElementById("simulateWinButton");
-simulateWinButton.addEventListener("click", simulateWin);
+// Call changeTheme with the default theme when the page loads
+changeTheme();
 
-
+// Adds event listeners to the start and restart buttons.
 const startBtn = document.getElementById("start")
 startBtn.addEventListener("click", startGame)
 
 const restartBtn = document.getElementById("restart")
-restartBtn.addEventListener("click", restartGame);
-
-
+restartBtn.addEventListener("click", resetGame);

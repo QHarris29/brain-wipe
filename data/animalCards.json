@@ -1,0 +1,38 @@
+[
+    {
+        "image": "assets/AnimalImgs/MP1-AnimalImg1.png",
+        "name": "Tiger"
+    },
+    {
+        "image": "assets/AnimalImgs/MP1-AnimalImg2.png",
+        "name": "Giraffe"
+    },
+    {
+        "image": "assets/AnimalImgs/MP1-AnimalImg3.png",
+        "name": "Chimp"
+    },
+    {
+        "image": "assets/AnimalImgs/MP1-AnimalImg4.png",
+        "name": "Fox"
+    },
+    {
+        "image": "assets/AnimalImgs/MP1-AnimalImg5.png",
+        "name": "Squirrel"
+    },
+    {
+        "image": "assets/AnimalImgs/MP1-AnimalImg6.png",
+        "name": "Panda"
+    },
+    {
+        "image": "assets/AnimalImgs/MP1-AnimalImg7.png",
+        "name": "Wolf"
+    },
+    {
+        "image": "assets/AnimalImgs/MP1-AnimalImg8.png",
+        "name": "Zebra"
+    },
+    {
+        "image": "assets/AnimalImgs/MP1-AnimalImg9.png",
+        "name": "Elephant"
+    }
+]

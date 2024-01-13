@@ -1,3 +1,5 @@
+
+/* Set the minimum height and width of the body to cover the entire viewport */
 body {
     min-height: 100vh;
     min-width: 100vw;
@@ -5,18 +7,21 @@ body {
     color: hsl(303, 100%, 84%);
 }
 
+/* Style for the main heading */
 h1 {
     text-align: center;
     font-weight: 700;
     font-size: 50px;
 }
 
+/* Style for paragraphs */
 p {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
 }
 
+/* Style for the timer display */
 #timer {
     text-align: center;
     font-weight: 700;
@@ -24,12 +29,14 @@ p {
     padding-bottom: 10px;
 }
 
+/* Style for the action buttons container */
 .actions {
     padding: 10px;
     display: flex;
     justify-content: center;
 }
 
+/* Style for action buttons */
 .actions button {
     padding: 8px 16px;
     font-size: 30px;
@@ -38,6 +45,7 @@ p {
     color: #252525;
 }
 
+/* Style for the grid container */
 .grid-container {
     display: grid;
     justify-content: center;
@@ -46,6 +54,7 @@ p {
     grid-template-rows: repeat(2, calc(140px / 2 * 3));
 }
 
+/* Style for the individual cards */
 .card {
     height: calc(140px / 2 * 3);
     width: 140px;
@@ -56,15 +65,18 @@ p {
     transition: all 0.5s ease-in-out;
 }
 
+/* Style for the front image in cards */
 .front-image {
     width: 60px;
     height: 60px;
 }
 
+/* Style for flipped cards */
 .card.flipped {
     transform: rotateY(180deg);
 }
 
+/* Style for front and back faces of cards */
 .front,
 .back {
     backface-visibility: hidden;
@@ -76,13 +88,18 @@ p {
     width: 100%;
 }
 
+/* Style for the front face of cards */
 .card .front {
     display: flex;
     justify-content: center;
     align-items: center;
     transform: rotateY(180deg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+/* Style for the back face of cards */
 .card .back {
  background-image: url(https://img.craiyon.com/2024-01-11/IptIDJNsQiSAQxDfsVo6Bg.webp);
  background-position: center center;

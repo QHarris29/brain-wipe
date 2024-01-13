@@ -1,0 +1,38 @@
+[
+    {
+        "image": "assets/MHAImgs/MP1-MHAImg1.png",
+        "name": "Izuku"
+    },
+    {
+        "image": "assets/MHAImgs/MP1-MHAImg2.png",
+        "name": "Bakugo"
+    },
+    {
+        "image": "assets/MHAImgs/MP1-MHAImg3.png",
+        "name": "Todoroki"
+    },
+    {
+        "image": "assets/MHAImgs/MP1-MHAImg4.png",
+        "name": "Tokoyami"
+    },
+    {
+        "image": "assets/MHAImgs/MP1-MHAImg5.png",
+        "name": "Kirishima"
+    },
+    {
+        "image": "assets/MHAImgs/MP1-MHAImg6.png",
+        "name": "Froppy"
+    },
+    {
+        "image": "assets/MHAImgs/MP1-MHAImg7.png",
+        "name": "Jiro"
+    },
+    {
+        "image": "assets/MHAImgs/MP1-MHAImg8.png",
+        "name": "Uraraka"
+    },
+    {
+        "image": "assets/MHAImgs/MP1-MHAImg9.png",
+        "name": "Mina"
+    }
+]
