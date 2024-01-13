@@ -17,7 +17,7 @@ p {
     font-weight: bold;
 }
 
-.timer {
+#timer {
     text-align: center;
     font-weight: 700;
     font-size: 50px;
@@ -89,3 +89,4 @@ p {
  background-size: cover;
  backface-visibility: hidden;
 }
+

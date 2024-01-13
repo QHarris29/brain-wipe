@@ -2,8 +2,9 @@ const gridContainer = document.querySelector(".grid-container");
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
-let score = 0;
+let score = 0; //initial score value.
 let timer;
+let timerSeconds = 9; // Initial timer value in seconds
 
 document.querySelector(".score").textContent = score;
 
@@ -63,10 +64,25 @@ function flipCard() {
     checkForMatch();
 }
 
+function checkWin() {
+    const allMatched = document.querySelectorAll('.flipped').length === cards.length;
+    const isHighScore = score === 9;
+
+    if (allMatched && isHighScore) {
+        // Display the "You got the high score" popup
+        alert("You got the high score!");
+
+        // You can also customize the appearance of the popup using a modal or any other UI component.
+    }
+}
+
 function checkForMatch() {
     let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
     isMatch ? disableCards() : unflipCards();
+
+    // Check for win after each match
+    checkWin();
 }
 
 function disableCards() {
@@ -91,28 +107,41 @@ function resetBoard() {
 }
 
 function startGame() {
-    // Flip all cards face up at the beginning
+    document.getElementById("timer").textContent = timerSeconds;
+
     flipAllCards(true);
 
-    // Wait for a short duration before flipping cards face down and starting the timer
+    startTimer();
+
     setTimeout(() => {
-        flipAllCards(false); // Flip all cards face down after a short delay
+        flipAllCards(false);
         startTimer();
-    }, 10000); // Set the delay to 10 seconds (10000 milliseconds)
+    }, 10000);
+}
+
+function startTimer() {
+    timer = setInterval(() => {
+        document.getElementById("timer").textContent = timerSeconds;
+
+        if (timerSeconds === 0) {
+            clearInterval(timer);
+            endGame();
+        } else {
+            timerSeconds--;
+        }
+    }, 1000);
 }
 
 function restartGame() {
-    // Flip all cards face down
     flipAllCards(false);
-
-    // Reset the game state
     score = 0;
     document.querySelector(".score").textContent = score;
-
-    // Clear any existing timer
     clearInterval(timer);
 
-    // Re-add click event listeners to all cards
+    // Reset timerSeconds to its initial value
+    timerSeconds = 9; // or whatever initial value you want
+
+    // Add event listeners to all cards
     const allCards = document.querySelectorAll('.card');
     allCards.forEach(card => {
         card.addEventListener("click", flipCard);
@@ -131,20 +160,18 @@ function flipAllCards(faceUp) {
     });
 }
 
-function startTimer() {
-    timer = setInterval(() => {
-        // Timer logic here
-        console.log("Time remaining...");
-        // You can update a timer display if needed
+function simulateWin() {
+    // Simulate winning the game by flipping all cards
+    flipAllCards(true);
 
-        // Example: If you want to end the game after 30 seconds
-        if (timerSeconds === 0) {
-            clearInterval(timer);
-            // Call a function to handle the end of the game
-            endGame();
-        }
-    }, 1000); // Update the timer every 1000 milliseconds (1 second)
+    // Call checkWin to show the "You got the high score" popup
+    checkWin();
 }
+
+// Add a button or a keyboard shortcut to trigger the simulation
+const simulateWinButton = document.getElementById("simulateWinButton");
+simulateWinButton.addEventListener("click", simulateWin);
+
 
 const startBtn = document.getElementById("start")
 startBtn.addEventListener("click", startGame)
