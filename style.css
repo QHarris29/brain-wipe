@@ -1,18 +1,63 @@
 
-/* Set the minimum height and width of the body to cover the entire viewport */
 body {
     min-height: 100vh;
     min-width: 100vw;
     background-color: #252525;
     color: hsl(303, 100%, 84%);
+    margin: 0;
+}
+
+.taskbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333; /* Adjust background color for the taskbar */
+}
+
+body.dark-mode {
+    background-color: #252525;
+    color: hsl(303, 100%, 84%);
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background-color: hsl(303, 100%, 84%);
+    color: #252525;
 }
 
 /* Style for the main heading */
 h1 {
-    text-align: center;
-    font-weight: 700;
-    font-size: 50px;
+    font-weight: 1000;
+    font-size: 50px; /* Adjust font size */
+    margin: 0; /* Remove default margin */
+    color: #ff66b2;
+    margin-left: auto; /* Align the h1 to the center */
+    margin-right: auto;
 }
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#theme,
+#toggleMode {
+    padding: 8px 16px;
+    font-size: 14px; /* Adjust font size */
+    border-radius: 10px;
+    background-color: #ff66b2;
+    color: #252525;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#theme:hover,
+#toggleMode:hover {
+    background-color: #f6b0ff;
+}
+
+/* The rest of your existing CSS styles */
 
 /* Style for paragraphs */
 p {
@@ -26,7 +71,7 @@ p {
     text-align: center;
     font-weight: 700;
     font-size: 50px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
 }
 
 /* Style for the action buttons container */
@@ -36,13 +81,20 @@ p {
     justify-content: center;
 }
 
+
 /* Style for action buttons */
 .actions button {
-    padding: 8px 16px;
-    font-size: 30px;
-    border-radius: 10px;
-    background-color: hsl(303, 100%, 84%);
+    padding: 20px 25px; 
+    font-size: 24px; 
+    border-radius: 35px; 
+    background-color: #ff66b2; 
     color: #252525;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.actions button:hover {
+    background-color: #f6b0ff; /* Lighter pink on hover */
 }
 
 /* Style for the grid container */
@@ -59,11 +111,12 @@ p {
     height: calc(140px / 2 * 3);
     width: 140px;
     border-radius: 10px;
-    background-color: #fe9393;
+    background-color: hsl(303, 100%, 84%);
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out;
 }
+
 
 /* Style for the front image in cards */
 .front-image {
@@ -106,4 +159,50 @@ p {
  background-size: cover;
  backface-visibility: hidden;
 }
+
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #252525;
+    color: hsl(303, 100%, 84%);
+    margin: 0;
+}
+
+.taskbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333; /* Adjust background color for the taskbar */
+}
+
+/* Style for the main heading */
+h1 {
+    font-weight: 700;
+    font-size: 30px; /* Adjust font size */
+    margin: 0; /* Remove default margin */
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#theme,
+#toggleMode {
+    padding: 8px 16px;
+    font-size: 14px; /* Adjust font size */
+    border-radius: 10px;
+    background-color: #ff66b2;
+    color: #252525;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#theme:hover,
+#toggleMode:hover {
+    background-color: #f6b0ff;
+}
+
 

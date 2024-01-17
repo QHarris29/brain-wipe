@@ -5,6 +5,10 @@ let lockBoard = false;
 let score = 0; //initial score value.
 let timer;
 let timerSeconds = 9; // Initial timer value in seconds
+let isDarkMode = true;
+let youtubePlayer;
+const toggleModeBtn = document.getElementById("toggleMode");
+toggleModeBtn.addEventListener("click", toggleMode);
 
 document.querySelector(".score").textContent = score;
 
@@ -78,8 +82,9 @@ function checkWin() {
     if (allMatched && isHighScore) {
         // Display the "You got the high score" popup
         alert("You got the high score!");
-
-        // You can also customize the appearance of the popup using a modal or any other UI component.
+    } else if (allMatched && score > 9) {
+        // Display another popup for a higher score
+        alert("GOOD JOB! Click reset and try for a perfect score!!!");
     }
 }
 
@@ -121,10 +126,13 @@ function resetBoard() {
 function startGame() {
     document.getElementById("timer").textContent = timerSeconds;
 
-    flipAllCards(true);
-
+    // Start the timer
     startTimer();
 
+    // Flip all cards face up
+    flipAllCards(true);
+
+    // Set a timeout to flip the cards back and start the timer again after 10 seconds
     setTimeout(() => {
         flipAllCards(false);
         startTimer();
@@ -190,6 +198,19 @@ function flipAllCards(faceUp) {
     });
 }
 
+function toggleMode() {
+    const body = document.body;
+    isDarkMode = !isDarkMode;
+
+    if (isDarkMode) {
+        body.classList.add("dark-mode");
+        body.classList.remove("light-mode");
+    } else {
+        body.classList.add("light-mode");
+        body.classList.remove("dark-mode");
+    }
+}
+
 // Changes the theme by loading new card data based on the selected theme.
 function changeTheme() {
     const themeSelector = document.getElementById("theme");
@@ -208,6 +229,8 @@ function changeTheme() {
             generateCards();
         });
 }
+
+
 
 // Call changeTheme with the default theme when the page loads
 changeTheme();

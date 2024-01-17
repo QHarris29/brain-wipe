@@ -1,33 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://www.youtube.com/iframe_api"></script>
     <title>Brain Wipe - Can you memorize the cards in time?</title>
 </head>
 <body>
-    <h1>Brain-Wipe</h1> <!-- My Title/Header -->
-    
-<div id="timer">10s</div> <!-- Countdown Timer -->
+    <div class="taskbar">
+        <h1>Brain-Wipe</h1>
+        <div class="buttons">
+            <select id="theme" onchange="changeTheme()">
+                <option value="animal">Animal Theme</option>
+                <option value="mha">My Hero Academia Theme</option>
+                <option value="planet">Planet Theme</option>
+            </select>
+            <button id="toggleMode">Toggle Mode</button>
+        </div>
+    </div>
 
-
-<select id="theme" onchange="changeTheme()">
-    <option value="animal">Animal Theme</option>
-    <option value="mha">My Hero Academia Theme</option> <!--My Card Themes for the different images-->
-    <option value="planet">Planet Theme</option>
-</select>
-
-<div class="grid-container"><!-- Container for my cards -->
-
-</div>
-<p>Score: <span class="score"><!-- My Score Class -->
-
-</span></p>
-<div class="actions"><!-- My Actions Class -->
-    <button id="start">Start</button>
-    <button id="restart">Reset</button><!-- RESET BUTTON -->
-</div>
+    <div class="game-container">
+        <!-- The rest of your existing HTML content -->
+        <div id="timer">10s</div>
+        <div class="grid-container"></div>
+        <p>Score: <span class="score"></span></p>
+        <div class="actions">
+            <button id="start">Start</button>
+            <button id="restart">Reset</button>
+        </div>
+    </div>
 
     <script src="index.js"></script>
 </body>
