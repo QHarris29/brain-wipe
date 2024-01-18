@@ -96,6 +96,7 @@ p {
 .actions button:hover {
     background-color: #f6b0ff; /* Lighter pink on hover */
 }
+
 /* Style for the grid container */
 .grid-container {
     display: grid;
@@ -187,4 +188,36 @@ h1 {
     background-color: #f6b0ff;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
+.dropbtn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+    background-color: #ff66b2;
+    color: #252525;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content p {
+    padding: 10px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
