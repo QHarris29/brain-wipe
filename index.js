@@ -83,7 +83,7 @@ function checkWin() {
         // Display the "You got the high score" popup
         alert("You got the high score!");
     } else if (allMatched && score > 9) {
-        // Display another popup for a higher score
+        // Display perfect score popup
         alert("GOOD JOB! Click reset and try for a perfect score!!!");
     }
 }
@@ -123,19 +123,28 @@ function resetBoard() {
 }
 
 // Initiates the start of the game by flipping all cards and starting the timer.
-function startGame() {
+function resetTimer() {
+    timerSeconds = 10;
     document.getElementById("timer").textContent = timerSeconds;
+}
 
-    // Start the timer
-    startTimer();
+function startGame() {
+    resetTimer(); // Reset the timer before starting the game
+
+    // If the timer is already running, clear it
+    if (timer) {
+        clearInterval(timer);
+    }
 
     // Flip all cards face up
     flipAllCards(true);
 
+    // Start the timer
+    startTimer();
+
     // Set a timeout to flip the cards back and start the timer again after 10 seconds
     setTimeout(() => {
         flipAllCards(false);
-        startTimer();
     }, 10000);
 }
 
@@ -155,6 +164,7 @@ function startTimer() {
 
 // Resets the game state, including score, timer, and card layout.
 function resetGame() {
+    resetTimer();
     flipAllCards(false);
     score = 0;
     document.querySelector(".score").textContent = score;

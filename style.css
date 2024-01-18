@@ -1,71 +1,74 @@
+:root {
+    --background-dark: #252525;
+    --text-dark: hsl(303, 100%, 84%);
+    --background-light: hsl(303, 100%, 84%);
+    --text-light: #252525;
+    --theme-color: #ff66b2;
+    --theme-color-hover: #f6b0ff;
+}
 
 body {
     min-height: 100vh;
     min-width: 100vw;
-    background-color: #252525;
-    color: hsl(303, 100%, 84%);
+    background-color: var(--background-dark);
+    color: var(--text-dark);
     margin: 0;
 }
 
+/* Taskbar Styles */
 .taskbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #333; /* Adjust background color for the taskbar */
+    background-color: #333; 
 }
-
+/* Dark Mode Styles*/
 body.dark-mode {
     background-color: #252525;
     color: hsl(303, 100%, 84%);
 }
-
 /* Light Mode Styles */
 body.light-mode {
     background-color: hsl(303, 100%, 84%);
     color: #252525;
 }
-
 /* Style for the main heading */
 h1 {
     font-weight: 1000;
     font-size: 50px; /* Adjust font size */
     margin: 0; /* Remove default margin */
     color: #ff66b2;
-    margin-left: auto; /* Align the h1 to the center */
+    margin-left: auto; 
     margin-right: auto;
 }
-
+/* Button styles */
 .buttons {
     display: flex;
     gap: 10px;
 }
-
+/* Theme and Light/Dark Mode*/
 #theme,
 #toggleMode {
     padding: 8px 16px;
-    font-size: 14px; /* Adjust font size */
+    font-size: 14px;
     border-radius: 10px;
-    background-color: #ff66b2;
-    color: #252525;
+    background-color: var(--theme-color);
+    color: var(--text-dark);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
+/*Changes color when you hover over*/
 #theme:hover,
 #toggleMode:hover {
-    background-color: #f6b0ff;
+    background-color: var(--theme-color-hover);
 }
-
-/* The rest of your existing CSS styles */
-
 /* Style for paragraphs */
 p {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
 }
-
 /* Style for the timer display */
 #timer {
     text-align: center;
@@ -73,14 +76,12 @@ p {
     font-size: 50px;
     padding-bottom: 0px;
 }
-
 /* Style for the action buttons container */
 .actions {
     padding: 10px;
     display: flex;
     justify-content: center;
 }
-
 
 /* Style for action buttons */
 .actions button {
@@ -92,11 +93,9 @@ p {
     cursor: pointer; 
     transition: background-color 0.3s ease; 
 }
-
 .actions button:hover {
     background-color: #f6b0ff; /* Lighter pink on hover */
 }
-
 /* Style for the grid container */
 .grid-container {
     display: grid;
@@ -105,7 +104,6 @@ p {
     grid-template-columns: repeat(6, 140px);
     grid-template-rows: repeat(2, calc(140px / 2 * 3));
 }
-
 /* Style for the individual cards */
 .card {
     height: calc(140px / 2 * 3);
@@ -116,19 +114,15 @@ p {
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out;
 }
-
-
 /* Style for the front image in cards */
 .front-image {
     width: 60px;
     height: 60px;
 }
-
 /* Style for flipped cards */
 .card.flipped {
     transform: rotateY(180deg);
 }
-
 /* Style for front and back faces of cards */
 .front,
 .back {
@@ -140,7 +134,6 @@ p {
     height: 100%;
     width: 100%;
 }
-
 /* Style for the front face of cards */
 .card .front {
     display: flex;
@@ -151,7 +144,6 @@ p {
     background-position: center;
     background-repeat: no-repeat;
 }
-
 /* Style for the back face of cards */
 .card .back {
  background-image: url(https://img.craiyon.com/2024-01-11/IptIDJNsQiSAQxDfsVo6Bg.webp);
@@ -159,16 +151,6 @@ p {
  background-size: cover;
  backface-visibility: hidden;
 }
-
-
-body {
-    min-height: 100vh;
-    min-width: 100vw;
-    background-color: #252525;
-    color: hsl(303, 100%, 84%);
-    margin: 0;
-}
-
 .taskbar {
     display: flex;
     justify-content: space-between;
