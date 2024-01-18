@@ -1,38 +1,38 @@
 [
     {
-        "image": "./assets/AnimalImgs/MP1-AnimalImg1.png",
+        "image": "./assets/AnimalImgs/MP1-AnimalImg1.PNG",
         "name": "Tiger"
     },
     {
-        "image": "./assets/AnimalImgs/MP1-AnimalImg2.png",
+        "image": "./assets/AnimalImgs/MP1-AnimalImg2.PNG",
         "name": "Giraffe"
     },
     {
-        "image": "./assets/AnimalImgs/MP1-AnimalImg3.png",
+        "image": "./assets/AnimalImgs/MP1-AnimalImg3.PNG",
         "name": "Chimp"
     },
     {
-        "image": "./assets/AnimalImgs/MP1-AnimalImg4.png",
+        "image": "./assets/AnimalImgs/MP1-AnimalImg4.PNG",
         "name": "Fox"
     },
     {
-        "image": "./assets/AnimalImgs/MP1-AnimalImg5.png",
+        "image": "./assets/AnimalImgs/MP1-AnimalImg5.PNG",
         "name": "Squirrel"
     },
     {
-        "image": "./assets/AnimalImgs/MP1-AnimalImg6.png",
+        "image": "./assets/AnimalImgs/MP1-AnimalImg6.PNG",
         "name": "Panda"
     },
     {
-        "image": "./assets/AnimalImgs/MP1-AnimalImg7.png",
+        "image": "./assets/AnimalImgs/MP1-AnimalImg7.PNG",
         "name": "Wolf"
     },
     {
-        "image": "./assets/AnimalImgs/MP1-AnimalImg8.png",
+        "image": "./assets/AnimalImgs/MP1-AnimalImg8.PNG",
         "name": "Zebra"
     },
     {
-        "image": "./assets/AnimalImgs/MP1-AnimalImg9.png",
+        "image": "./assets/AnimalImgs/MP1-AnimalImg9.PNG",
         "name": "Elephant"
     }
 ]
