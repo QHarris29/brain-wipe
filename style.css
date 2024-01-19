@@ -1,10 +1,10 @@
 :root {
     --background-dark: #252525;
-    --text-dark: hsl(303, 100%, 84%);
-    --background-light: hsl(303, 100%, 84%);
-    --text-light: #252525;
-    --theme-color: #ff66b2;
-    --theme-color-hover: #f6b0ff;
+    --text-dark: #d5a0a0;
+    --background-light: #d5a0a0;
+    --text-light: #003493;
+    --theme-color: #d5a0a0;
+    --theme-color-hover: #7ab8ff;
 }
 
 body {
@@ -26,21 +26,19 @@ body {
 /* Dark Mode Styles*/
 body.dark-mode {
     background-color: #252525;
-    color: hsl(303, 100%, 84%);
+    color: #d5a0a0;
 }
 /* Light Mode Styles */
 body.light-mode {
-    background-color: hsl(303, 100%, 84%);
-    color: #252525;
+    background-color: #d5a0a0;
+    color: #003493;
 }
 /* Style for the main heading */
 h1 {
     font-weight: 1000;
     font-size: 50px; /* Adjust font size */
     margin: 0; /* Remove default margin */
-    color: #ff66b2;
-    margin-left: auto; 
-    margin-right: auto;
+    color: #d5a0a0
 }
 /* Button styles */
 .buttons {
@@ -88,13 +86,13 @@ p {
     padding: 20px 25px; 
     font-size: 24px; 
     border-radius: 35px; 
-    background-color: #ff66b2; 
-    color: #252525;
+    background-color: #ffb6b6; 
+    color: #003493;
     cursor: pointer; 
     transition: background-color 0.3s ease; 
 }
 .actions button:hover {
-    background-color: #f6b0ff; /* Lighter pink on hover */
+    background-color: #7ab8ff; /* Light blue on hover */
 }
 
 /* Style for the grid container */
@@ -110,7 +108,7 @@ p {
     height: calc(140px / 2 * 3);
     width: 140px;
     border-radius: 10px;
-    background-color: hsl(303, 100%, 84%);
+    background-color: #ffb6b6;
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out;
@@ -147,11 +145,12 @@ p {
 }
 /* Style for the back face of cards */
 .card .back {
- background-image: url(https://img.craiyon.com/2024-01-11/IptIDJNsQiSAQxDfsVo6Bg.webp);
- background-position: center center;
- background-size: cover;
- backface-visibility: hidden;
+    background-image: url(https://st5.depositphotos.com/10825324/64441/i/450/depositphotos_644414812-stock-photo-blue-color-brain-floating-pink.jpg);
+    background-position: center center;
+    background-size: cover;
+    backface-visibility: hidden;
 }
+
 .taskbar {
     display: flex;
     justify-content: space-between;
@@ -177,15 +176,15 @@ h1 {
     padding: 8px 16px;
     font-size: 14px; /* Adjust font size */
     border-radius: 10px;
-    background-color: #ff66b2;
-    color: #252525;
+    background-color: #ffb6b6;
+    color: #003493;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #theme:hover,
 #toggleMode:hover {
-    background-color: #f6b0ff;
+    background-color: #7ab8ff;
 }
 
 .dropdown {
@@ -197,7 +196,7 @@ h1 {
     padding: 8px 16px;
     font-size: 14px;
     border-radius: 10px;
-    background-color: #ff66b2;
+    background-color: #ffb6b6;
     color: #252525;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -206,7 +205,8 @@ h1 {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #ffb6b6;
+    color: #003493;
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
